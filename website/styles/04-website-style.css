@@ -1,0 +1,11 @@
+button {
+  background-color: red;
+  color: white;
+  border: none;
+}
+.first-button {
+  background-color: blue;
+}
+.second-button {
+  background-color: yellow;
+}

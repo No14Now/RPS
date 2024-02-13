@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>
+      DOM projects
+    </title>
+
+  </head>
+
+  <body>
+
+    <p>
+      Subscribe Button
+    </p>
+
+    <button onclick="toggleSubscribeButton();" class="subscribe-button">
+      Subscribe
+    </button>
+
+    <p>
+     Shipping Calculator 
+    </p>
+
+    <input placeholder="Cost of Order" class="cost-input" onkeydown="handleCostInputKeyDown(event);">
+
+    <button onclick="calculateShipping();">
+      Calculate
+    </button>
+
+    <p class="total-cost">
+
+    </p>
+
+    <script>
+
+      function handleCostInputKeyDown(event) {
+        if (event.key === 'Enter') {calculateShipping();}
+      }
+
+      function calculateShipping() {
+       const inputElement = document.querySelector('.cost-input');
+       let cost = Number(inputElement.value) * 100;
+
+       if (cost === 0) {
+         cost = 0;
+       }
+       else if (cost < 4000) {
+         cost = cost + 1000;
+       }
+
+       cost = cost / 100
+
+       document.querySelector('.total-cost').innerText = 'Total cost: $' + cost;
+      }
+
+      function toggleSubscribeButton() {
+        const buttonElement = document.querySelector('.subscribe-button');
+        buttonElement.innerText === 'Subscribe' ? 
+        buttonElement.innerText = 'Subscribed' : 
+        buttonElement.innerText = 'Subscribe';
+      }
+
+    </script>
+
+  </body>
+
+</html>

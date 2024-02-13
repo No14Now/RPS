@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>
+      Arrays and Loops
+    </title>
+
+  </head>
+
+  <body>
+
+    <script>
+    const nums = [10, 20, 30, 40, 50];
+    let total = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+      total += nums[i];
+    }
+    console.log(total);
+
+    const numsDoubled = [];
+
+    for (let i = 0; i < nums.length; i++) {
+      numsDoubled.push(nums[i] * 2);
+    }
+    console.log(numsDoubled);
+
+    const swappingArray = ['last', 'mid1', 'mid2', 'mid3', 'first'];
+
+    function arraySwap(array) {
+      const firstInArray = array.slice(0, 1);
+      console.log(firstInArray);
+      const lastInArray = array.slice(-1);
+      console.log(lastInArray);
+      swappingArray.splice(0, 1, lastInArray);
+      console.log(swappingArray);
+      swappingArray.splice(-1, 1, firstInArray);
+      console.log(swappingArray);
+    }
+
+    function arraySwap2(arr) {
+      if (arr.length >= 2) {
+        const first = arr[0];
+        console.log(first);
+        arr[0] = arr[arr.length - 1];
+        console.log(arr);
+        arr[arr.length - 1] = first;
+        console.log(arr);
+  }
+}
+
+ 
+    arraySwap2(swappingArray);
+
+    console.log(swappingArray);
+
+
+    </script>
+
+  </body>
+
+</html>

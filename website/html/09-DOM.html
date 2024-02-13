@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>
+      DOM
+    </title>
+
+  </head>
+
+  <body>
+
+    <button>
+      Hello
+    </button>
+
+    <button class="second-button">
+      Button2
+    </button>
+
+    <script>
+      console.log(document.title);
+
+      console.log(document.body);
+      console.log(document.body.innerHTML);
+
+      document.querySelector('button').innerHTML = 'Goodbye';
+      const buttonElement = document.querySelector('.second-button');
+      /*
+      document.body.innerHTML = 'Hello World';
+      document.title = 'Done';
+      */
+
+    </script>
+
+  </body>
+
+</html>

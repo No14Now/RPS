@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>
+      DOM projects
+    </title>
+
+    <style>
+
+      body {
+        font-family: Arial;
+      }
+
+      .subscribe-button {
+        background-color: black;
+        border: none;
+        border-radius: 30px;
+        color: white;
+        cursor: pointer;
+        padding: 10px 15px;
+        font-weight: bold;
+      }
+      .subscribed {
+        background-color: rgb(240, 240, 240);
+        color: black;
+      }
+
+      .cost-input {
+        font-size: 15px;
+        padding: 10px;
+      }
+
+      .calculateTotal {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <p>
+      Subscribe Button
+    </p>
+
+    <button onclick="toggleSubscribeButton();" class="subscribe-button">
+      Subscribe
+    </button>
+
+    <p>
+     Shipping Calculator 
+    </p>
+
+    <input placeholder="Cost of Order" class="cost-input" onkeydown="handleCostInputKeyDown(event);">
+
+    <button onclick="calculateShipping();" class='calculateTotal';>
+      Calculate
+    </button>
+
+    <p class="total-cost">
+
+    </p>
+
+    <script>
+
+      function handleCostInputKeyDown(event) {
+        if (event.key === 'Enter') {calculateShipping();}
+      }
+
+      function calculateShipping() {
+       const inputElement = document.querySelector('.cost-input');
+       let cost = Number(inputElement.value) * 100;
+
+       if (cost === 0) {
+         cost = 0;
+       }
+       else if (cost < 0) {
+         document.querySelector('.total-cost').innerText = 'Invalid cost. There will be no trolling. Enter a positive number.'
+         return;
+       }
+       else if (cost < 4000) {
+         cost = cost + 1000;
+       }
+
+       cost = cost / 100
+
+       document.querySelector('.total-cost').innerText = 'Total cost: $' + cost;
+      }
+
+      function toggleSubscribeButton() {
+        const buttonElement = document.querySelector('.subscribe-button');
+        buttonElement.innerText === 'Subscribe' ? 
+        (buttonElement.innerText = 'Subscribed', buttonElement.classList.add('subscribed')) : 
+        (buttonElement.innerText = 'Subscribe', buttonElement.classList.remove('subscribed'));
+      }
+
+    </script>
+
+  </body>
+
+</html>

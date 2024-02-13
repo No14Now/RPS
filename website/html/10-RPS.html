@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>
+      Rock Paper Scissors
+    </title>
+
+    <link rel="stylesheet" href="/javascript-course/website/styles/10-RPS.css">
+    
+    <style>
+
+    </style>
+
+  </head>
+
+  <body>
+    
+    <p class="title">
+      Rock Paper Scissors
+    </p>
+
+    <div class="move-buttons-div">
+
+      <button onclick="PlayGame('Rock');"
+      class="move-button">
+        <img src="/javascript-course/website/images/rock-emoji.png"
+        class="move-icon">
+        <!--Rock-->
+      </button>
+
+      <button onclick="PlayGame('Paper');"
+      class="move-button">
+        <img src="/javascript-course/website/images/paper-emoji.png"
+        class="move-icon">
+        <!--Paper-->
+      </button>
+
+      <button onclick="PlayGame('Scissors');"
+      class="move-button">
+        <img src="/javascript-course/website/images/scissors-emoji.png"
+        class="move-icon">
+        <!--Scissors-->
+      </button>
+
+   </div>
+
+    <p class="result">
+      If you can read this, the result displaying isn't working properly.
+    </p>
+
+    <p class="moves">
+      If you can read this, the move displaying isn't working properly.
+    </p>
+
+    <p class="record">
+      If you can read this, the score displaying isn't working properly.
+    </p>
+
+    <div class="multiple-games-div">
+      <input placeholder="How Many Games To Play" class="multiple-games-field" type="number" id="multiple-games-input">
+    </div>
+
+    <div class="centering-div">
+      <div class="trapezoid-div">
+        <div class="small-move-buttons-div">
+
+          <div class="L1">
+            <svg width="56" height="42">
+              <a href="#" onclick="PlayMultipleGames(PlayerMove), isItFucked(PlayerMove);">
+               <polygon points="0,0 28,42 56,0" class="small-move-polygon"/>
+              </a>
+            </svg>
+
+            <span class="indicative-on-anomaly" onclick="PlayMultipleGames(PlayerMove), isItFucked(PlayerMove);">
+              PLAY
+            </span>
+          </div>
+
+          <div class="L2">
+            <svg width="56" height="42">
+              <a href="#" onclick="PlayerMove = 'Rock';">
+               <polygon points="0,42 28,0 56,42"/>
+              </a>
+            </svg>
+
+            <img src="/javascript-course/website/images/rock-emoji.png"
+            class="small-move-icon indicative-on-pyramid" onclick="PlayerMove = 'Rock';">
+          </div>
+
+          <div class="L3">
+            <svg width="56" height="42">
+              <a href="#" onclick="PlayerMove = 'Paper';">
+                <polygon points="0,0 28,42 56,0"/>
+             </a>
+            </svg>  
+
+            <img src="/javascript-course/website/images/paper-emoji.png"
+            class="small-move-icon indicative-on-anomaly" onclick="PlayerMove = 'Paper';" style="left: 21px;">
+          </div>
+
+          <div class="L4">
+            <svg width="56" height="42">
+              <a href="#" onclick="PlayerMove = 'Scissors';">
+               <polygon points="0,42 28,0 56,42"/>
+              </a>
+            </svg>
+
+            <img src="/javascript-course/website/images/scissors-emoji.png"
+            class="small-move-icon indicative-on-pyramid" onclick="PlayerMove = 'Scissors';">
+          </div>
+
+          <div class="L5">
+            <svg width="56" height="42">
+              <polygon points="0,0 28,42 56,0"/>
+            </svg>
+
+            <span class="indicative-on-anomaly" style="left: 16px;" onclick="clearMultipleGamesField();">
+              CLR
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="reset-button-div">
+      <button onclick="ResetScore();" class="reset-button">
+        Reset Score
+      </button>
+    </div>
+
+    <script src="/javascript-course/website/scripts/10-RPS.js">
+
+    </script>
+
+  </body>
+
+</html>

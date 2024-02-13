@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="/javascript-course/website/styles/calculator.css">
+
+  </head>
+
+  <body>
+
+    <p class="calculation" style="min-height: 50px";>
+
+    </p>
+
+    <p>
+
+      <button onclick="UpdateCalculation('1');" class="number-button">
+        1
+      </button>
+
+      <button onclick="UpdateCalculation('2');" class="number-button">
+        2
+      </button>
+
+      <button onclick="UpdateCalculation('3');" class="number-button">
+        3
+      </button>
+
+      <button onclick="UpdateCalculation(' + ');" class="operator-button">
+        +
+      </button>
+
+   </p>
+
+   <p>
+
+      <button onclick="UpdateCalculation('4');" class="number-button">
+        4
+      </button>
+
+      <button onclick="UpdateCalculation('5');" class="number-button">
+        5
+      </button>
+
+      <button onclick="UpdateCalculation('6');" class="number-button">
+        6
+      </button>
+
+      <button onclick="UpdateCalculation(' - ');" class="operator-button">
+        -
+      </button>
+
+   </p>
+
+   <p>
+
+      <button onclick="UpdateCalculation('7');" class="number-button">
+        7
+      </button>
+
+      <button onclick="UpdateCalculation('8');" class="number-button">
+        8
+      </button>
+
+      <button onclick="UpdateCalculation('9');" class="number-button">
+        9
+      </button>
+
+      <button onclick="UpdateCalculation(' * ');" class="operator-button">
+        *
+      </button>
+
+   </p>
+
+   <p>
+
+      <button onclick="UpdateCalculation('0');" class="number-button">
+        0
+      </button>
+
+      <button onclick="UpdateCalculation('.');" class="number-button">
+        .
+      </button>
+
+      <button onclick="CalculatorCount = eval(CalculatorCount) || '', document.querySelector('.calculation').innerHTML = CalculatorCount;" class="operator-button">
+        =
+     </button>
+
+      <button onclick="UpdateCalculation(' / ')" class="operator-button">
+        /
+     </button>
+
+   </p>
+  
+   <p>
+    
+      <button onclick="CalculatorCount = '', UpdateCalculation('');" class="technical-button"> 
+        Clear Calculator
+      </button>
+
+      <button onclick="localStorage.removeItem('CalculatorCount');" class="technical-button">
+        Clear localStorage
+      </button>
+
+   </p>
+
+    <script src="/javascript-course/website/scripts/calculator.js">
+
+    </script>
+
+  </body>
+
+</html>
