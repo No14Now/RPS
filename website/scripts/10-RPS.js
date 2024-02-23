@@ -106,6 +106,7 @@ function PlayMultipleGames(PlayerMove) {
   const AmountOfGames = InputElement.value;
   for (let i = 0; i < AmountOfGames; i++) {
     PlayGame(PlayerMove);
+    console.log(i+1);
   }
 }
 
@@ -141,3 +142,14 @@ function isItFucked(PlayerMove) {
   console.log(typeof PlayerMove);
   console.log(PlayerMove);
 }
+
+const smallMovePolygons = document.querySelectorAll('.small-move-polygon');
+
+// Add a click event listener to each element
+smallMovePolygons.forEach(polygon => {
+  polygon.addEventListener('click', () => {
+    // Call the same function as the onclick attribute
+    // Replace 'yourFunctionName' with the actual name of the function
+    yourFunctionName();
+  });
+});

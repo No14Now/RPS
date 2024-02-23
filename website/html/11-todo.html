@@ -5,7 +5,7 @@
   <head>
 
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/javascript-course/website/styles/11-todo.css">
+    <link rel="stylesheet" href="../styles/11-todo.css">
     <title>
       To-do List
     </title>
@@ -18,20 +18,32 @@
       To-do List
     </p>
 
-    <input placeholder="Task" class="task-input" onkeydown="pressedEnter(event);">
+    <div class="todo-control">
 
-    <button onclick="AddTask();">
-      Add
-    </button>
+      <input placeholder="Task" class="task-input" onkeydown="pressedEnter(event);">
 
-    <div class="todo-list">
+      <input type="date" class="date-input">
+
+      <button onclick="AddTask();" class="add-button">
+        Add
+      </button>
 
     </div>
 
-    <script src="/javascript-course/website/scripts/11-todo.js">
+    <div class="todo-list todo-grid">
+
+    </div>
+    
+    <script src="../scripts/11-todo.js">
 
     </script>
 
   </body>
 
 </html>
+
+1-way data, same-origin policy, file protection, VT-CYBSEC, address space layout randomization (ASLR), stack protection, fly trap program, exploit development, reverse engineering, why SQL, bcrypt, scrypt, Argon2, fileless execution, remote code execution, how to tell if something is written by a human or by AI, firewalls, intrusion detection systems, endpoint protection, Endpoint Detection and Response (EDR), Intrusion Detection and Prevention Systems (IDPS), reverse proxies, insecure defaults, phone app on PC, reverse shell, web shell, raising an exception, fragmentation, virtualization, manual memory management, 111... file, DNS spoofing, SIP spoofing, return-oriented programming (ROP) chain, memory leak, ESP in x86, .NET framework, garbage collection, superclass, SSL/TLS, Data Loss Prevention (DLP), URL (Uniform Resource Locator), URI (Uniform Resource Identifier), mil-setting CYBSEC, explain IP addresses, explain ports, explain protocols, APK files, mobile device management (MDM), hysteresis in economics, 
+
+<!--
+salting code, key stretching, best practices for handling pws, sandboxed environment using HTML, CSS and JavaScript, cryptography,  Parameterized Queries, Sanitization, Content Security Policy and Escaping Output, rainbow table attacks, precomputed dictionary attacks, cross-site scripting, buffer overflow, stack canaries, shellcode, stack pivoting, visualise escalating privileges, corrupt the program's execution flow, minimise attack vectors, minimise attack surface, prevent CSRF, stack pointer, object-oriented programming (OOP), event-driven programming, asynchronous programming, C, C++, C#, event loop, HTTPS, shadow tree, root privileges, rootkits, threat intel, 
+-->

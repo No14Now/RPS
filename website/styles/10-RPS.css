@@ -63,6 +63,11 @@ body {
   color: white;
   text-align: center;
 }
+input[type=number] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  appearance: textfield; 
+}
 
 .centering-div {
   display: flex;
@@ -113,6 +118,15 @@ body {
   bottom: 0px;
   left: 21px;
   z-index: 1000000;
+  cursor: pointer;
+}
+
+.small-move-polygon-anomaly {
+  clip-path: polygon(0,0 28,42 56,0);
+  cursor: pointer;
+}
+.small-move-polygon-pyramid {
+  clip-path: polygon(0,42 28,0 56,42);
   cursor: pointer;
 }
 
