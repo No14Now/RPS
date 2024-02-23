@@ -16,97 +16,98 @@
 
     <script>
 
-    const nums = [10, 20, 30, 40, 50];
-    let total = 0;
+      const nums = [10, 20, 30, 40, 50];
+      let total = 0;
 
-    for (let i = 0; i < nums.length; i++) {
-      total += nums[i];
-    }
-    console.log(total);
-
-    function doubleNums(nums) {
-      const numsDoubled = [];
       for (let i = 0; i < nums.length; i++) {
-        numsDoubled.push(nums[i] * 2);
+        total += nums[i];
       }
-      console.log(numsDoubled);
-    }
+      console.log(total);
 
-    const swappingArray = ['last', 'mid1', 'mid2', 'mid3', 'first'];
+      function doubleNums(nums) {
+        const numsDoubled = [];
+        for (let i = 0; i < nums.length; i++) {
+          numsDoubled.push(nums[i] * 2);
+        }
+        console.log(numsDoubled);
+      }
 
-    function arraySwap(array) {
-      const firstInArray = array.slice(0, 1);
-      console.log(firstInArray);
-      const lastInArray = array.slice(-1);
-      console.log(lastInArray);
-      swappingArray.splice(0, 1, lastInArray);
+      const swappingArray = ['last', 'mid1', 'mid2', 'mid3', 'first'];
+
+      function arraySwap(array) {
+        const firstInArray = array.slice(0, 1);
+        console.log(firstInArray);
+        const lastInArray = array.slice(-1);
+        console.log(lastInArray);
+        swappingArray.splice(0, 1, lastInArray);
+        console.log(swappingArray);
+        swappingArray.splice(-1, 1, firstInArray);
+        console.log(swappingArray);
+      }
+
+      function arraySwap2(arr) {
+        if (arr.length >= 2) {
+          const first = arr[0];
+          console.log(first);
+          arr[0] = arr[arr.length - 1];
+          console.log(arr);
+          arr[arr.length - 1] = first;
+          console.log(arr);
+        }
+      }
+
+  
+      arraySwap2(swappingArray);
+
       console.log(swappingArray);
-      swappingArray.splice(-1, 1, firstInArray);
-      console.log(swappingArray);
-    }
 
-    function arraySwap2(arr) {
-      if (arr.length >= 2) {
-        const first = arr[0];
-        console.log(first);
-        arr[0] = arr[arr.length - 1];
-        console.log(arr);
-        arr[arr.length - 1] = first;
-        console.log(arr);
+      const [thing, things] = [1, 2, 3, 4];
+
+      for (let i = 0; i <= 10; i++) {
+        if (i % 2 === 0) {
+          continue;
+        }
+        else if (i === 8) {
+          break;
+        }
+        console.log(i);
       }
-    }
 
- 
-    arraySwap2(swappingArray);
+      let i = 0;
 
-    console.log(swappingArray);
-
-    const [thing, things] = [1, 2, 3, 4];
-
-    for (let i = 0; i <= 10; i++) {
-      if (i % 2 === 0) {
-        continue;
-      }
-      else if (i === 8) {
-        break;
-      }
-      console.log(i);
-    }
-
-    let i = 0;
-
-    while (i <= 10) {
-      if (i % 2 === 0) {
+      while (i <= 10) {
+        if (i % 2 === 0) {
+          i++;
+          continue;
+        }
+        else if (i === 8) {
+          break;
+        }
+        console.log(i);
         i++;
-        continue;
       }
-      else if (i === 8) {
-        break;
-      }
-      console.log(i);
-      i++;
-    }
 
-    doubleNums([1, 1, 3])
-    doubleNums([2, 3, 4, 5, 6, 7, 8, 9, 10])
+      doubleNums([1, 1, 3])
+      doubleNums([2, 3, 4, 5, 6, 7, 8, 9, 10])
 
-    function findAndLogPrimes(upToNumber) {
-      for (let number = 2; number <= upToNumber; number++) {
-        let isPrime = true;
-        for (let divisor = 2; divisor * divisor <= number; divisor++) {
-          if (number % divisor === 0) {
-            isPrime = false;
-            break;
+      function findAndLogPrimes(minNumber, maxNumber) {
+        for (let number = minNumber; number <= maxNumber; number++) {
+          let isPrime = true;
+          for (let divisor = 2; divisor * divisor <= number; divisor++) {
+            if (number % divisor === 0) {
+              isPrime = false;
+              break;
+            }
+          }
+          if (isPrime) {
+            console.log(number);
           }
         }
-        if (isPrime) {
-          console.log(number);
-        }
       }
-    }
-    
-    // Example usage:
-    findAndLogPrimes(200); // This will log all prime numbers up to 20 to the console
+
+      // Example usage:
+      findAndLogPrimes(20, 200); // This will log prime numbers from 20 to 200 to the console
+      
     </script>
 
   </body>
