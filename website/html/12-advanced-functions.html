@@ -16,6 +16,7 @@
 
     <script>
 
+      
       function greeting() {
         console.log("Hello World");
       }
@@ -29,6 +30,29 @@
 
       console.log(function1);
       function1();
+
+      const object1 = {
+        num: 3,
+        fun: function greeting() {
+          console.log("Hello World " + this.num);
+        }
+      }
+
+      object1.fun();
+
+      function display(param) {
+        console.log(param);
+      }
+
+      display("6");
+
+      function run(param) {
+        param();
+      }
+
+      run(function() {
+        console.log("Hello World 4");
+      });
 
     </script>
 
