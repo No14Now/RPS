@@ -52,15 +52,112 @@
 
       run(function() {
         console.log("Hello World 4");
-      });
-      */
+      });      
 
       setTimeout(function() {
         console.log("Timeout");
       }, 10000);
-      
+      */
+
+      function searchForSearch(array, word) {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === word) {
+            return console.log(i);
+          }
+        }
+        return console.log(-1);
+      } 
+
+      const randomStrings = ["apple", "banana", "orange", "kiwi", "pineapple", "watermelon", "grape", "strawberry", "blueberry", "mango", "papaya", "peach", "coconut", "pear", "cherry", "search", "plum"];
+      const animalsWithSearch = ["lion", "tiger", "elephant", "giraffe", "zebra", "rhinoceros", "hippopotamus", "cheetah", "leopard", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search"];
+      const colorsWithSearch = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "black", "white", "brown", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search"];
+      const countriesWithSearch = ["USA", "Canada", "Mexico", "Brazil", "Argentina", "Chile", "Peru", "France", "Germany", "Italy", "Spain", "UK", "Japan", "China", "India", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search"];
+      const programmingLanguagesWithSearch = ["JavaScript", "Python", "Java", "C++", "Ruby", "Go", "Swift", "Kotlin", "Rust", "TypeScript", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search"];
+      const animalsWithMultipleSearch = ["lion", "tiger", "elephant", "giraffe", "zebra", "rhinoceros", "hippopotamus", "cheetah", "leopard", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search"];
+      const colorsWithMultipleSearch = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "black", "white", "brown", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search"];
+      const countriesWithMultipleSearch = ["USA", "Canada", "Mexico", "Brazil", "Argentina", "Chile", "Peru", "France", "Germany", "Italy", "Spain", "UK", "Japan", "China", "India", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search"];
+      const programmingLanguagesWithMultipleSearch = ["JavaScript", "Python", "Java", "C++", "Ruby", "Go", "Swift", "Kotlin", "Rust", "TypeScript", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search"];
+
+
+      searchForSearch(randomStrings, "mango");
+      searchForSearch(animalsWithSearch, "cheetah");
+      searchForSearch(colorsWithSearch, "green");
+      searchForSearch(countriesWithSearch, "Chile");
+      searchForSearch(programmingLanguagesWithSearch, "TypeScript");
+      searchForSearch(animalsWithMultipleSearch, "search");
+      searchForSearch(colorsWithMultipleSearch, "search");
+      searchForSearch(countriesWithMultipleSearch, "search");
+      searchForSearch(programmingLanguagesWithMultipleSearch, "search");
+
+
+      // Function to encode the text and log intermediate steps
+      function encodeAndLog(text, iterations) {
+        let encodedText = text;
+        console.log("Original Text:", encodedText);
+
+        for (let i = 0; i < iterations; i++) {
+          // Example encoding step: character rotation by 1
+          encodedText = Array.from(encodedText).map(char => String.fromCharCode(char.charCodeAt(0) + 1)).join('');
+
+          // Log the intermediate result after each step
+          console.log(`Iteration ${i+1}:`, encodedText);
+        }
+
+        return encodedText; // Return the final encoded text
+      }
+
+      // Function to decode the text and undo the encoding process
+      function decodeAndLog(encodedText, iterations) {
+        let decodedText = encodedText;
+        console.log("Encoded Text:", decodedText);
+
+        for (let i = 0; i < iterations; i++) {
+          // Example decoding step: character rotation by -1
+          decodedText = Array.from(decodedText).map(char => String.fromCharCode(char.charCodeAt(0) - 1)).join('');
+
+          // Log the intermediate result after each step
+          console.log(`Undo Iteration ${i+1}:`, decodedText);
+        }
+
+        return decodedText; // Return the final decoded text
+      }
+
+      // Example usage
+      let originalText = "Hello";
+      let numIterations = 10;
+
+      // Encode the text and log intermediate steps
+      let encodedText = encodeAndLog(originalText, numIterations);
+      console.log("Final Encoded Text:", encodedText);
+
+      // Decode the encoded text and log intermediate steps to undo the process
+      let decodedText = decodeAndLog(encodedText, numIterations);
+      console.log("Final Decoded Text:", decodedText);
+
     </script>
 
   </body>
 
 </html>
+
+
+<!--
+// Read the image file as a binary blob
+const fileInput = document.getElementById('fileInput');
+fileInput.addEventListener('change', (event) => {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.onload = (event) => {
+    const binaryData = event.target.result;
+    const hexadecimalData = Array.from(new Uint8Array(binaryData))
+      .map(byte => byte.toString(16).padStart(2, '0'))
+      .join('');
+    console.log(hexadecimalData);
+  };
+  reader.readAsArrayBuffer(file);
+});
+
+what is HTML5 canvas API, Base64 encoding and why is binary better than hexadecimal, basics of cryptography, all operators, 
+
+
+-->
