@@ -10,6 +10,11 @@
       Advanced Functions
     </title>
 
+    <style>
+      body {
+        background-color: black;
+      }
+    </style>
   </head>
 
   <body>
@@ -134,6 +139,63 @@
       // Decode the encoded text and log intermediate steps to undo the process
       let decodedText = decodeAndLog(encodedText, numIterations);
       console.log("Final Decoded Text:", decodedText);
+
+      function createReversedArray(arr) {
+        return function() {
+          return arr.slice().reverse();  // This creates a new array and reverses it
+        };
+      }
+      
+      let originalArray = [1, 2, 3, 4, 5];
+      let reversedArrayFunc = createReversedArray(originalArray);
+      let reversedArray = reversedArrayFunc();
+      
+      console.log(originalArray);  // Output: [1, 2, 3, 4, 5]
+      console.log(reversedArray);  // Output: [5, 4, 3, 2, 1]
+
+      function FizzBuzz() {
+        for (let i = 1; i < 21; i++) {
+          if (i % 3 === 0 && i % 5 === 0) {
+            console.log("FizzBuzz");
+            continue;
+          }
+          else if (i % 5 === 0) {
+            console.log("Buzz");
+            continue;
+          }
+          else if (i % 3 === 0) {
+            console.log("Fizz");
+            continue;
+          }
+          else {
+            console.log(i);
+          }
+        }
+      }
+
+      function extractUniques(repetetiveArray) {
+        let comparingArray = [];
+        for (let i = 0; i < repetetiveArray.length; i++) {
+          // compare with comparing array
+          if (comparingArray.includes(repetetiveArray[i])) {
+            continue;
+          }  
+          // else push to comparing array
+          else {
+            comparingArray.push(repetetiveArray[i]);
+          }
+        }
+        return comparingArray;
+      }
+
+      const colors = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "teal", "maroon", "gold", "indigo", "silver", "lavender", "turquoise", "coral", "lime","red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "teal", "maroon", "gold", "indigo", "silver", "lavender", "turquoise", "coral", "lime"];
+
+      for (let i = colors.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [colors[i], colors[j]] = [colors[j], colors[i]];
+      }
+
+      console.log(extractUniques(colors));
 
     </script>
 
