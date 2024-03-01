@@ -6,67 +6,67 @@ updateResultElement();
 updateMoveElement();
 updateRecordElement();
 
-function PlayGame(PlayerMove) {
+  function PlayGame(PlayerMove) {
 
-  var ComputerMove = PickComputerMove();
-  result = '';
+    var ComputerMove = PickComputerMove();
+    result = '';
 
-  if (PlayerMove === 'Rock') {
+    if (PlayerMove === 'Rock') {
 
-    if (ComputerMove === 'Rock') {
-      result = 'Tie';
+      if (ComputerMove === 'Rock') {
+        result = 'Tie';
+      }
+      else if (ComputerMove === 'Paper') {
+        result = 'Lose';
+      }
+      else {
+        result = 'Win';
+      }
     }
-    else if (ComputerMove === 'Paper') {
-      result = 'Lose';
-    }
-    else {
-      result = 'Win';
-    }
-  }
 
-  else if (PlayerMove === 'Paper') {
-    if (ComputerMove === 'Rock') {
-      result = 'Win';
-    }
-    else if (ComputerMove === 'Paper') {
-      result = 'Tie';
-    }
-    else {
-      result = 'Lose';
-    }
-  
-  }
-
-  else if (PlayerMove === 'Scissors') {
-    if (ComputerMove === 'Rock') {
-      result = 'Lose';
-    }
-    else if (ComputerMove === 'Paper') {
-      result = 'Win';
-    }
-    else {
-      result = 'Tie';
-    }
-  }
-
-  if (result === 'Win') {
-    score.Wins++;
-  }
-  else if (result === 'Lose') {
-    score.Losses++;
-  }
-  else if (result === 'Tie') {
-    score.Ties++;
-  }
+    else if (PlayerMove === 'Paper') {
+      if (ComputerMove === 'Rock') {
+        result = 'Win';
+      }
+      else if (ComputerMove === 'Paper') {
+        result = 'Tie';
+      }
+      else {
+        result = 'Lose';
+      }
     
+    }
 
-  localStorage.setItem('score', JSON.stringify(score));
+    else if (PlayerMove === 'Scissors') {
+      if (ComputerMove === 'Rock') {
+        result = 'Lose';
+      }
+      else if (ComputerMove === 'Paper') {
+        result = 'Win';
+      }
+      else {
+        result = 'Tie';
+      }
+    }
 
-  updateResultElement();
-  updateMoveElement(PlayerMove, ComputerMove);
-  updateRecordElement();
+    if (result === 'Win') {
+      score.Wins++;
+    }
+    else if (result === 'Lose') {
+      score.Losses++;
+    }
+    else if (result === 'Tie') {
+      score.Ties++;
+    }
+      
 
-}
+    localStorage.setItem('score', JSON.stringify(score));
+
+    updateResultElement();
+    updateMoveElement(PlayerMove, ComputerMove);
+    updateRecordElement();
+
+  }
 
   function updateResultElement() {
     result !== '' ?
@@ -74,10 +74,10 @@ function PlayGame(PlayerMove) {
     document.querySelector('.result').innerHTML = `Make a move!`;
   } 
   function updateMoveElement(PlayerMove, ComputerMove) {
-    PlayerMove !== undefined && ComputerMove !== undefined ?
+    PlayerMove != null && ComputerMove != null ?
     document.querySelector('.moves').innerHTML = `
-    Moves: <img src="/javascript-course/website/images/${PlayerMove}-emoji.png" class="move-icon"> vs. 
-    <img src="/javascript-course/website/images/${ComputerMove}-emoji.png" class="move-icon">`:
+    Moves: <img src="../images/${PlayerMove}-emoji.png" class="move-icon"> vs. 
+    <img src="../images/${ComputerMove}-emoji.png" class="move-icon">`:
     document.querySelector('.moves').innerHTML = ``;
   } 
   function updateRecordElement() {
