@@ -47,6 +47,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 5px;
   height: 50px;
 }
 .multiple-games-field {
@@ -78,11 +79,11 @@ input[type=number] {
 }
 
 .trapezoid-div {
-  border-top: 98px solid gold;
-	border-left: 50px solid transparent;
-	border-right: 50px solid transparent;
+  border-top: 93px solid gold;
+	border-left: 62px solid transparent;
+	border-right: 62px solid transparent;
 	height: 0;
-  width: 108px;
+  width: 68px;
   position: relative;
 }
 .small-move-buttons-div {
@@ -91,8 +92,26 @@ input[type=number] {
   align-items: center;
   position: relative;
   width: 180px;
-  top: -79px;
-  left: -26px;
+  top: -75px;
+  left: -56px;
+}
+
+.auto-play-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 180px;
+  top: -45px;
+  left: -56px;
+  
+}
+.auto-play-button {
+  position: absolute;
+}
+.indicative-on-autoplay {
+  position: absolute;
+  color: gold;
 }
 
 .small-move-polygon {
@@ -160,24 +179,6 @@ input[type=number] {
   left: 124px;
   width: 38px;
   height: 29px;
-}
-
-.auto-play-button-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 180px;
-  top: -48px;
-  left: -26px;
-  
-}
-.auto-play-button {
-  position: absolute;
-}
-.indicative-on-autoplay {
-  position: absolute;
-  
 }
 
 .reset-button-div {

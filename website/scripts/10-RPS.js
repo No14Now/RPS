@@ -11,43 +11,25 @@ updateRecordElement();
     var ComputerMove = PickComputerMove();
     result = '';
 
-    if (PlayerMove === 'Rock') {
+    const outcomes = {
+      Rock: {
+        Rock: 'Tie',
+        Paper: 'Lose',
+        Scissors: 'Win'
+      },
+      Paper: {
+        Rock: 'Win',
+        Paper: 'Tie',
+        Scissors: 'Lose'
+      },
+      Scissors: {
+        Rock: 'Lose',
+        Paper: 'Win',
+        Scissors: 'Tie'
+      }
+    };
 
-      if (ComputerMove === 'Rock') {
-        result = 'Tie';
-      }
-      else if (ComputerMove === 'Paper') {
-        result = 'Lose';
-      }
-      else {
-        result = 'Win';
-      }
-    }
-
-    else if (PlayerMove === 'Paper') {
-      if (ComputerMove === 'Rock') {
-        result = 'Win';
-      }
-      else if (ComputerMove === 'Paper') {
-        result = 'Tie';
-      }
-      else {
-        result = 'Lose';
-      }
-    
-    }
-
-    else if (PlayerMove === 'Scissors') {
-      if (ComputerMove === 'Rock') {
-        result = 'Lose';
-      }
-      else if (ComputerMove === 'Paper') {
-        result = 'Win';
-      }
-      else {
-        result = 'Tie';
-      }
-    }
+    result = outcomes[PlayerMove][ComputerMove];
 
     if (result === 'Win') {
       score.Wins++;
@@ -66,6 +48,21 @@ updateRecordElement();
     updateMoveElement(PlayerMove, ComputerMove);
     updateRecordElement();
 
+  }
+  let isAutoPlaying = false;
+  let intervalId;
+
+  function autoPlay(PlayerMove) {
+    if (!isAutoPlaying) {
+      isAutoPlaying = true;
+      intervalId = setInterval(() => {
+        PlayGame(PlayerMove);
+      }, 1000)
+    }
+    else {
+      clearInterval(intervalId);
+      isAutoPlaying = false;
+    }
   }
 
   function updateResultElement() {
