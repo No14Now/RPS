@@ -145,8 +145,11 @@ const smallMovePolygons = document.querySelectorAll('.small-move-polygon');
 // Add a click event listener to each element
 smallMovePolygons.forEach(polygon => {
   polygon.addEventListener('click', () => {
-    // Call the same function as the onclick attribute
-    // Replace 'yourFunctionName' with the actual name of the function
-    yourFunctionName();
+    // Remove the 'selected' class from all polygons
+    smallMovePolygons.forEach(p => {
+      p.classList.remove('selected');
+    });
+    // Add the 'selected' class to the clicked polygon
+    polygon.classList.add('selected');
   });
 });

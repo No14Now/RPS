@@ -58,7 +58,7 @@ body {
   border-radius: 50px;
   padding: 5px;
   outline: none;
-  caret-color: transparent;
+  caret-color: gold;
 }
 .multiple-games-field::placeholder {
   color: white;
@@ -116,6 +116,9 @@ input[type=number] {
 
 .small-move-polygon {
   color: black;
+}
+.small-move-polygon.selected {
+  color: red !important;
 }
 .small-move-icon {
   height: 15px;
