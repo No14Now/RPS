@@ -118,7 +118,7 @@ input[type=number] {
   fill: black;
 }
 .small-move-polygon.selected {
-  fill: red;
+  filter: url(#glow);
 }
 .small-move-icon {
   height: 15px;

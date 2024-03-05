@@ -31,15 +31,7 @@ updateRecordElement();
 
     result = outcomes[PlayerMove][ComputerMove];
 
-    if (result === 'Win') {
-      score.Wins++;
-    }
-    else if (result === 'Lose') {
-      score.Losses++;
-    }
-    else if (result === 'Tie') {
-      score.Ties++;
-    }
+    score[result]++;
       
 
     localStorage.setItem('score', JSON.stringify(score));
@@ -66,90 +58,90 @@ updateRecordElement();
   }
 
   function updateResultElement() {
-    result !== '' ?
+    result ?
     document.querySelector('.result').innerHTML = `You ${result}`:
     document.querySelector('.result').innerHTML = `Make a move!`;
   } 
+
   function updateMoveElement(PlayerMove, ComputerMove) {
-    PlayerMove != null && ComputerMove != null ?
-    document.querySelector('.moves').innerHTML = `
-    Moves: <img src="../images/${PlayerMove}-emoji.png" class="move-icon"> vs. 
-    <img src="../images/${ComputerMove}-emoji.png" class="move-icon">`:
-    document.querySelector('.moves').innerHTML = ``;
-  } 
+    document.querySelector('.moves').innerHTML = 
+      (PlayerMove && ComputerMove) ? 
+      `Moves: <img src="../images/${PlayerMove}-emoji.png" class="move-icon"> vs. 
+      <img src="../images/${ComputerMove}-emoji.png" class="move-icon">` : 
+      ``;
+  }
+
   function updateRecordElement() {
    document.querySelector('.record').innerHTML = `Record: Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`;
   }
 
-function PickComputerMove() {
-  const RandomNumber = Math.random();
-  let ComputerMove = '';
+  function PickComputerMove() {
+    const RandomNumber = Math.random();
+    let ComputerMove = '';
 
-  if (RandomNumber > 2/3) {
-    ComputerMove = ('Rock');
-  } 
-  else if (RandomNumber > 1/3 && RandomNumber < 2/3) {
-    ComputerMove = ('Paper');
+    if (RandomNumber > 2/3) {
+      ComputerMove = ('Rock');
+    } 
+    else if (RandomNumber > 1/3 && RandomNumber < 2/3) {
+      ComputerMove = ('Paper');
+    }
+    else {
+      ComputerMove = ('Scissors');
+    }
+
+    return ComputerMove;
   }
-  else {
-    ComputerMove = ('Scissors');
+
+  function PlayMultipleGames(PlayerMove) {
+    const InputElement = document.getElementById('multiple-games-input');
+    const AmountOfGames = InputElement.value;
+    for (let i = 0; i < AmountOfGames; i++) {
+      PlayGame(PlayerMove);
+      console.log(i+1);
+    }
   }
 
-  return ComputerMove;
-}
-
-function PlayMultipleGames(PlayerMove) {
-  const InputElement = document.getElementById('multiple-games-input');
-  const AmountOfGames = InputElement.value;
-  for (let i = 0; i < AmountOfGames; i++) {
-    PlayGame(PlayerMove);
-    console.log(i+1);
+  function clearMultipleGamesField() {
+    document.querySelector('#multiple-games-input').value = '';
+    PlayerMove = '';
   }
-}
 
-function clearMultipleGamesField() {
-  document.querySelector('#multiple-games-input').value = '';
-  PlayerMove = '';
-}
-
-function ResetScore() {
-  score.Wins = 0;
-  score.Losses = 0;
-  score.Ties = 0;
-  localStorage.removeItem('score');
-  updateResultElement();
-  updateMoveElement();
-  updateRecordElement();
-}
-
-let PlayerMove = '';
-
-function isItFucked(PlayerMove) {
-  console.log(typeof PlayerMove);
-  console.log(PlayerMove);
-  if (PlayerMove !== 'Rock' && PlayerMove !== 'Paper' && PlayerMove !== 'Scissors') {
-    console.log('it\'s fucked');
-}
-  else if (PlayerMove === 'Rock' || PlayerMove === 'Paper' || PlayerMove === 'Scissors') {
-    console.log('surely maybe not completely fucked');
+  function ResetScore() {
+    score.Wins = 0;
+    score.Losses = 0;
+    score.Ties = 0;
+    localStorage.removeItem('score');
+    updateResultElement();
+    updateMoveElement();
+    updateRecordElement();
   }
-  else {
-    console.log('???????????????????????');
+
+  let PlayerMove = '';
+
+  function isItFucked(PlayerMove) {
+    console.log(typeof PlayerMove);
+    console.log(PlayerMove);
+    
+    if (['Rock', 'Paper', 'Scissors'].includes(PlayerMove)) {
+      console.log('surely maybe not completely fucked');
+    } else {
+      console.log("it's fucked");
+    }
+
+    console.log(typeof PlayerMove);
+    console.log(PlayerMove);
   }
-  console.log(typeof PlayerMove);
-  console.log(PlayerMove);
-}
 
-const smallMovePolygons = document.querySelectorAll('.small-move-polygon');
+  const smallMovePolygons = document.querySelectorAll('.small-move-polygon');
 
-// Add a click event listener to each element
-smallMovePolygons.forEach(polygon => {
-  polygon.addEventListener('click', () => {
-    // Remove the 'selected' class from all polygons
-    smallMovePolygons.forEach(p => {
-      p.classList.remove('selected');
+  // Add a click event listener to each element
+  smallMovePolygons.forEach(polygon => {
+    polygon.addEventListener('click', () => {
+      // Remove the 'selected' class from all polygons
+      smallMovePolygons.forEach(p => {
+        p.classList.remove('selected');
+      });
+      // Add the 'selected' class to the clicked polygon
+      polygon.classList.add('selected');
     });
-    // Add the 'selected' class to the clicked polygon
-    polygon.classList.add('selected');
   });
-});

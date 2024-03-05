@@ -138,6 +138,17 @@
       </div>
     </div>
 
+    <svg>
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="glow"/>
+          <feFlood flood-color="gold" result="glowColor"/>
+          <feComposite in="glowColor" in2="glow" operator="out" result="coloredGlow"/>
+          <feComposite in="coloredGlow" in2="SourceGraphic" operator="atop"/>
+        </filter>
+      </defs>
+    </svg>
+
     <div class="reset-button-div">
       <button onclick="ResetScore();" class="reset-button">
         Reset Score
