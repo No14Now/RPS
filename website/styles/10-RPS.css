@@ -114,10 +114,10 @@ input[type=number] {
   color: gold;
 }
 
-.small-move-polygon {
+.small-multigame-polygon {
   fill: black;
 }
-.small-move-polygon.selected {
+.small-multigame-polygon.selected {
   filter: url(#glow);
 }
 .small-move-icon {
@@ -143,11 +143,11 @@ input[type=number] {
   cursor: pointer;
 }
 
-.small-move-polygon-anomaly {
+.small-multigame-polygon-anomaly {
   clip-path: polygon(0,0 28,42 56,0);
   cursor: pointer;
 }
-.small-move-polygon-pyramid {
+.small-multigame-polygon-pyramid {
   clip-path: polygon(0,42 28,0 56,42);
   cursor: pointer;
 }

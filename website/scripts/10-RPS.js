@@ -1,6 +1,6 @@
 
 var result = '';
-const score = JSON.parse(localStorage.getItem('score')) || {Wins: 0, Losses: 0, Ties: 0};
+let score = JSON.parse(localStorage.getItem('score')) || {Win: 0, Lose: 0, Tie: 0};
 
 updateResultElement();
 updateMoveElement();
@@ -72,7 +72,7 @@ updateRecordElement();
   }
 
   function updateRecordElement() {
-   document.querySelector('.record').innerHTML = `Record: Wins: ${score.Wins}, Losses: ${score.Losses}, Ties: ${score.Ties}`;
+   document.querySelector('.record').innerHTML = `Record: Wins: ${score.Win}, Losses: ${score.Lose}, Ties: ${score.Tie}`;
   }
 
   function PickComputerMove() {
@@ -107,9 +107,9 @@ updateRecordElement();
   }
 
   function ResetScore() {
-    score.Wins = 0;
-    score.Losses = 0;
-    score.Ties = 0;
+    score.Win = 0;
+    score.Lose = 0;
+    score.Tie = 0;
     localStorage.removeItem('score');
     updateResultElement();
     updateMoveElement();
@@ -132,7 +132,7 @@ updateRecordElement();
     console.log(PlayerMove);
   }
 
-  const smallMovePolygons = document.querySelectorAll('.small-move-polygon');
+  const smallMovePolygons = document.querySelectorAll('.small-multigame-polygon');
 
   // Add a click event listener to each element
   smallMovePolygons.forEach(polygon => {
