@@ -115,10 +115,10 @@ input[type=number] {
 }
 
 .small-move-polygon {
-  color: black;
+  fill: black;
 }
 .small-move-polygon.selected {
-  color: red !important;
+  fill: red;
 }
 .small-move-icon {
   height: 15px;
