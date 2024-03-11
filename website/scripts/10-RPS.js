@@ -36,11 +36,11 @@ updateRecordElement();
 
     localStorage.setItem('score', JSON.stringify(score));
 
-    updateResultElement();
+    updateResultElement(result);
     updateMoveElement(PlayerMove, ComputerMove);
     updateRecordElement();
-
   }
+
   let isAutoPlaying = false;
   let intervalId;
 
@@ -54,6 +54,7 @@ updateRecordElement();
     else {
       clearInterval(intervalId);
       isAutoPlaying = false;
+      removeSelectedClass(document.getElementById('auto-play-button'));
     }
   }
 
@@ -76,31 +77,44 @@ updateRecordElement();
   }
 
   function PickComputerMove() {
-    const RandomNumber = Math.random();
-    let ComputerMove = '';
+    const randomNumber = Math.random();
+    let computerMove = '';
 
-    if (RandomNumber > 2/3) {
-      ComputerMove = ('Rock');
-    } 
-    else if (RandomNumber > 1/3 && RandomNumber < 2/3) {
-      ComputerMove = ('Paper');
-    }
-    else {
-      ComputerMove = ('Scissors');
+    switch (true) {
+      case randomNumber > 2/3:
+        computerMove = 'Rock';
+        break;
+      case randomNumber > 1/3:
+        computerMove = 'Paper';
+        break;
+      default:
+        computerMove = 'Scissors';
     }
 
-    return ComputerMove;
+    return computerMove;
   }
 
   function PlayMultipleGames(PlayerMove) {
     const InputElement = document.getElementById('multiple-games-input');
     const AmountOfGames = InputElement.value;
+  
     for (let i = 0; i < AmountOfGames; i++) {
-      PlayGame(PlayerMove);
-      console.log(i+1);
+      (function(index) {
+        setTimeout(() => {
+          PlayGame(PlayerMove, () => {
+            updateRecordElement(); 
+            console.log(i);
+          });
+          console.log(i);
+          console.log(index);
+          if (index + 1 === AmountOfGames) {
+            removeSelectedClass(document.getElementById('multigame-play-button'));
+          }
+        }, 100 * index);
+      })(i);
     }
-  }
-
+  };
+  
   function clearMultipleGamesField() {
     document.querySelector('#multiple-games-input').value = '';
     PlayerMove = '';
@@ -141,7 +155,16 @@ updateRecordElement();
       smallMovePolygons.forEach(p => {
         p.classList.remove('selected');
       });
+  
       // Add the 'selected' class to the clicked polygon
       polygon.classList.add('selected');
     });
   });
+
+  function addSelectedClass(item) {
+    item.classList.add('selected');
+  }
+
+  function removeSelectedClass(item) {
+    item.classList.remove('selected');
+  }

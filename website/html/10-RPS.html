@@ -72,7 +72,7 @@
           <div class="L1">
             <svg width="56" height="42">
               <a href="#" onclick="PlayMultipleGames(PlayerMove), isItFucked(PlayerMove);">
-               <polygon points="0,0 28,42 56,0" class="small-multigame-polygon small-multigame-polygon-anomaly"/>
+               <polygon points="0,0 28,42 56,0" class="small-move-polygon small-multigame-polygon-anomaly" id="multigame-play-button"/>
               </a>
             </svg>
 
@@ -116,7 +116,7 @@
 
           <div class="L5">
             <svg width="56" height="42">
-              <polygon points="0,0 28,42 56,0" class="small-multigame-polygon small-multigame-polygon-anomaly"/>
+              <polygon points="0,0 28,42 56,0" class="small-move-polygon small-multigame-polygon-anomaly"/>
             </svg>
 
             <span class="indicative-on-anomaly" style="left: 16px;" onclick="clearMultipleGamesField();">
@@ -128,7 +128,7 @@
         <div class="auto-play-button-div">
           <svg width="120" height="42">
             <a href="#" onclick="autoPlay(PlayerMove), isItFucked(PlayerMove);">
-             <polygon points="0,0 60,90 120,0" class="small-multigame-polygon small-multigame-polygon-anomaly auto-play-button"/>
+             <polygon points="0,0 60,90 120,0" class="small-move-polygon small-multigame-polygon-anomaly auto-play-button" id="auto-play-button"/>
             </a>
           </svg>
           <span class="indicative-on-autoplay" onclick="autoPlay(PlayerMove), isItFucked(PlayerMove);">
@@ -141,7 +141,7 @@
     <svg>
       <defs>
         <filter id="glow">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="glow"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="glow"/>
           <feFlood flood-color="gold" result="glowColor"/>
           <feComposite in="glowColor" in2="glow" operator="out" result="coloredGlow"/>
           <feComposite in="coloredGlow" in2="SourceGraphic" operator="atop"/>

@@ -104,7 +104,6 @@ input[type=number] {
   width: 180px;
   top: -45px;
   left: -56px;
-  
 }
 .auto-play-button {
   position: absolute;
@@ -116,9 +115,22 @@ input[type=number] {
 
 .small-multigame-polygon {
   fill: black;
+  filter: none;
+  transition: filter 2s ease;
 }
 .small-multigame-polygon.selected {
   filter: url(#glow);
+  transition: filter 2s ease;
+}
+
+.small-move-polygon {
+  fill: black;
+  filter: none;
+  transition: filter 2s ease;
+}
+.small-move-polygon.selected {
+  filter: url(#glow);
+  transition: filter 2s ease;
 }
 .small-move-icon {
   height: 15px;
