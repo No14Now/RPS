@@ -19,6 +19,10 @@
 
   <body>
 
+    <button id="loading-button" onclick="loadingButton()">
+      Load
+    </button>
+
     <script>
 
       /*
@@ -152,7 +156,7 @@
       
       console.log(originalArray);  // Output: [1, 2, 3, 4, 5]
       console.log(reversedArray);  // Output: [5, 4, 3, 2, 1]
-
+      */
       function FizzBuzz() {
         for (let i = 1; i < 21; i++) {
           if (i % 3 === 0 && i % 5 === 0) {
@@ -172,7 +176,7 @@
           }
         }
       }
-
+      /*
       function extractUniques(repetetiveArray) {
         let comparingArray = [];
         for (let i = 0; i < repetetiveArray.length; i++) {
@@ -209,9 +213,35 @@
      })
 
       const add = function() {console.log(2+3)};
-      (add);
-      (add);
+      add();
+      add();
 
+      function runTwice(func) {
+        func();
+        func();
+      }
+
+      runTwice(add);
+      runTwice(FizzBuzz);
+
+      function loadingButton() {
+        document.querySelector("#loading-button").innerHTML = "Loading";
+        setTimeout(() => {
+          document.querySelector("#loading-button").innerHTML = "Loading.";
+        }, 1000);
+        setTimeout(() => {
+          document.querySelector("#loading-button").innerHTML = "Loading..";
+        }, 2000);
+        setTimeout(() => {
+          document.querySelector("#loading-button").innerHTML = "Loading...";
+        }, 3000);
+        setTimeout(() => {
+          document.querySelector("#loading-button").innerHTML = "Loaded!";
+        }, 4000);
+        setTimeout(() => {
+          document.querySelector("#loading-button").innerHTML = "Load"; // reset button text to default
+        }, 7000)
+      };
 
     </script>
 
