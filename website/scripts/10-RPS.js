@@ -40,6 +40,10 @@ updateRecordElement();
     updateRecordElement();
   }
 
+  document.querySelector('.rock-button').addEventListener('click', () => {
+    
+  })
+  
   let isAutoPlaying = false;
   let intervalId;
 
