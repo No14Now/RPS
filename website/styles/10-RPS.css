@@ -47,7 +47,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   height: 50px;
 }
 .multiple-games-field {
@@ -75,7 +75,7 @@ input[type=number] {
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .trapezoid-div {
@@ -200,6 +200,7 @@ input[type=number] {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -120px;
 }
 .reset-button {
   background-color: transparent;
@@ -212,4 +213,5 @@ input[type=number] {
   cursor: pointer;
   justify-content: center;
   align-items: center;
+  margin-top: 0px;
 }

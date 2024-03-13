@@ -62,7 +62,7 @@
       setTimeout(function() {
         console.log("Timeout");
       }, 10000);
-      */
+      
 
       function searchForSearch(array, word) {
         for (let i = 0; i < array.length; i++) {
@@ -73,7 +73,7 @@
         return console.log(-1);
       } 
 
-      /*
+      
       const randomStrings = ["apple", "banana", "orange", "kiwi", "pineapple", "watermelon", "grape", "strawberry", "blueberry", "mango", "papaya", "peach", "coconut", "pear", "cherry", "search", "plum"];
       const animalsWithSearch = ["lion", "tiger", "elephant", "giraffe", "zebra", "rhinoceros", "hippopotamus", "cheetah", "leopard", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search"];
       const colorsWithSearch = ["red", "blue", "green", "yellow", "orange", "purple", "pink", "black", "white", "brown", "searching", "searchable", "searcher", "searchlight", "searching", "searchingly", "searchers", "searches", "searched", "search"];
@@ -94,7 +94,7 @@
       searchForSearch(colorsWithMultipleSearch, "search");
       searchForSearch(countriesWithMultipleSearch, "search");
       searchForSearch(programmingLanguagesWithMultipleSearch, "search"); 
-      */
+      
 
       // Function to encode the text and log intermediate steps
       function encodeAndLog(text, iterations) {
@@ -196,6 +196,22 @@
       }
 
       console.log(extractUniques(colors));
+      */
+
+      [
+      "red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "teal", "maroon", "gold", "indigo", "silver", "lavender", "turquoise", "coral", "lime","red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "teal", "maroon", "gold", "indigo", "silver", "lavender", "turquoise", "coral", "lime"
+     ].forEach(function(value, index) {
+       if (value === "pink") {
+         return;
+       }
+       console.log(value);
+       console.log(index);
+     })
+
+      const add = function() {console.log(2+3)};
+      (add);
+      (add);
+
 
     </script>
 

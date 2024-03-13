@@ -47,6 +47,7 @@ updateRecordElement();
   function autoPlay(PlayerMove) {
     if (!isAutoPlaying) {
       isAutoPlaying = true;
+      addSelectedClass(document.getElementById('auto-play-button'));
       intervalId = setInterval(() => {
         PlayGame(PlayerMove);
       }, 1000)
