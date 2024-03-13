@@ -7,7 +7,7 @@ const todoList = [
 function updateLoop() {
   document.querySelector('.todo-list').innerHTML = ''
 
-  todoList.forEach(function(todoObject, index) {
+  todoList.forEach((todoObject, index) => {
     const {task, dueDate} = todoObject;
     const html = `<div>${task}</div>
     <div>${dueDate}</div>

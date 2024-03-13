@@ -23,8 +23,16 @@
       Load
     </button>
 
+    <button class="click-button">
+      Click
+    </button>
+
     <script>
 
+      document.querySelector(".click-button").addEventListener("click", () => {
+        console.log("I was clicked");
+      })
+      
       /*
       function greeting() {
         console.log("Hello World");
@@ -204,7 +212,7 @@
 
       [
       "red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "teal", "maroon", "gold", "indigo", "silver", "lavender", "turquoise", "coral", "lime","red", "blue", "green", "yellow", "orange", "purple", "pink", "cyan", "magenta", "teal", "maroon", "gold", "indigo", "silver", "lavender", "turquoise", "coral", "lime"
-     ].forEach(function(value, index) {
+     ].forEach((value, index) => {
        if (value === "pink") {
          return;
        }
@@ -242,6 +250,20 @@
           document.querySelector("#loading-button").innerHTML = "Load"; // reset button text to default
         }, 7000)
       };
+
+      const regularFunction = function() {
+        console.log("I'm a regular function");
+      }
+      const arrowFunction = () => {
+        console.log("I'm an arrow function");
+      }
+      arrowFunction();
+
+      /* const object2 = {
+        method: () {
+          
+        } 
+      } */
 
     </script>
 

@@ -32,7 +32,6 @@ updateRecordElement();
     result = outcomes[PlayerMove][ComputerMove];
 
     score[result]++;
-      
 
     localStorage.setItem('score', JSON.stringify(score));
 
@@ -100,7 +99,7 @@ updateRecordElement();
     const AmountOfGames = InputElement.value;
   
     for (let i = 0; i < AmountOfGames; i++) {
-      (function(index) {
+      ((index) => {
         setTimeout(() => {
           PlayGame(PlayerMove, () => {
             updateRecordElement(); 
@@ -156,7 +155,6 @@ updateRecordElement();
       smallMovePolygons.forEach(p => {
         p.classList.remove('selected');
       });
-  
       // Add the 'selected' class to the clicked polygon
       polygon.classList.add('selected');
     });
