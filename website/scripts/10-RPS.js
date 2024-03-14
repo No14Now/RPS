@@ -40,33 +40,48 @@ updateRecordElement();
     updateRecordElement();
   }
 
-  const elementIds = ['multigame-play-button', 'multigame-play-text', 'clear-button', 'clear-text', 'auto-play-button', 'auto-play-text', 'multigame-rock', 'multigame-rock-icon', 'multigame-paper', 'multigame-paper-icon', 'multigame-scissors', 'multigame-scissors-icon'];
-  
-  const elements = {};
-  elementIds.forEach((id) => {
-    elements[id.replace('-','').replace('_','')] = document.getElementById(id);
-  });
+  const smallMovePolygons = document.querySelectorAll('.small-multigame-polygon');
   
   document.addEventListener('click', (event) => {
-    if (event.target === elements['multigame-play-button'] || event.target === elements['multigame-play-text']) {
+    if (event.target === document.getElementById('multigame-play-button') || event.target === document.getElementById('multigame-play-text')) {
       PlayMultipleGames(PlayerMove);
       isItFucked(PlayerMove);
+      console.log(PlayerMove);
+      console.log("test");
     }
-    if (event.target === elements['clear-button'] || event.target === elements['clear-text']) {
+    if (event.target === document.getElementById('clear-button') || event.target === document.getElementById('clear-text')) {
       clearMultipleGamesField();
+      addSelectedClass(document.getElementById('clear-button'));
+    
+      // Remove the 'selected' class from all smallMovePolygons
+      smallMovePolygons.forEach(p => {
+        p.classList.remove('selected');
+      });
+    
+      setTimeout(() => {
+        removeSelectedClass(document.getElementById('clear-button'));
+      }, 1000);
     }
-    if (event.target === elements['auto-play-button'] || event.target === elements['auto-play-text']) {
+    if (event.target === document.getElementById('auto-play-button') || event.target === document.getElementById('auto-play-text')) {
       autoPlay(PlayerMove);
       isItFucked(PlayerMove);
     }
-    if (event.target === elements['multigame-rock'] || event.target === elements['multigame-rock-icon']) {
+    if (event.target === document.getElementById('multigame-rock') || event.target === document.getElementById('multigame-rock-icon')) {
       PlayerMove = 'Rock';
     }
-    if (event.target === elements['multigame-paper'] || event.target === elements['multigame-paper-icon']) {
+    if (event.target === document.getElementById('multigame-paper') || event.target === document.getElementById('multigame-paper-icon')) {
       PlayerMove = 'Paper';
     }
-    if (event.target === elements['multigame-scissors'] || event.target === elements['multigame-scissors-icon']) {
+    if (event.target === document.getElementById('multigame-scissors') || event.target === document.getElementById('multigame-scissors-icon')) {
       PlayerMove = 'Scissors';
+    }
+    if (event.target.classList.contains('small-multigame-polygon')) {
+      // Remove the 'selected' class from all polygons
+      smallMovePolygons.forEach(p => {
+        p.classList.remove('selected');
+      });
+      // Add the 'selected' class to the clicked polygon
+      event.target.classList.add('selected');
     }
   });
 
@@ -80,6 +95,14 @@ updateRecordElement();
   addMoveClickListener('Paper');
   addMoveClickListener('Scissors');
 
+  function addSelectedClass(item) {
+    item.classList.add('selected');
+  }
+
+  function removeSelectedClass(item) {
+    item.classList.remove('selected');
+  }
+
   let isAutoPlaying = false;
   let intervalId;
 
@@ -89,7 +112,7 @@ updateRecordElement();
       addSelectedClass(document.getElementById('auto-play-button'));
       intervalId = setInterval(() => {
         PlayGame(PlayerMove);
-      }, 1000)
+      }, 500)
     }
     else {
       clearInterval(intervalId);
@@ -175,35 +198,20 @@ updateRecordElement();
   function isItFucked(PlayerMove) {
     console.log(typeof PlayerMove);
     console.log(PlayerMove);
-    
+
     if (['Rock', 'Paper', 'Scissors'].includes(PlayerMove)) {
       console.log('surely maybe not completely fucked');
     } else {
       console.log("it's fucked");
     }
-
     console.log(typeof PlayerMove);
     console.log(PlayerMove);
   }
 
-  const smallMovePolygons = document.querySelectorAll('.small-multigame-polygon');
-
-  // Add a click event listener to each element
-  smallMovePolygons.forEach(polygon => {
-    polygon.addEventListener('click', () => {
-      // Remove the 'selected' class from all polygons
-      smallMovePolygons.forEach(p => {
-        p.classList.remove('selected');
-      });
-      // Add the 'selected' class to the clicked polygon
-      polygon.classList.add('selected');
-    });
-  });
-
-  function addSelectedClass(item) {
-    item.classList.add('selected');
-  }
-
-  function removeSelectedClass(item) {
-    item.classList.remove('selected');
-  }
+  const filter = document.getElementById('glow');
+  
+  let deviation = 3;
+  setInterval(() => {
+    deviation = (deviation === 3) ? 10 : 3; 
+    filter.setAttribute('stdDeviation', deviation); 
+  }, 2000); 
