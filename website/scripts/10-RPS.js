@@ -40,10 +40,46 @@ updateRecordElement();
     updateRecordElement();
   }
 
-  document.querySelector('.rock-button').addEventListener('click', () => {
-    
-  })
+  const elementIds = ['multigame-play-button', 'multigame-play-text', 'clear-button', 'clear-text', 'auto-play-button', 'auto-play-text', 'multigame-rock', 'multigame-rock-icon', 'multigame-paper', 'multigame-paper-icon', 'multigame-scissors', 'multigame-scissors-icon'];
   
+  const elements = {};
+  elementIds.forEach((id) => {
+    elements[id.replace('-','').replace('_','')] = document.getElementById(id);
+  });
+  
+  document.addEventListener('click', (event) => {
+    if (event.target === elements['multigame-play-button'] || event.target === elements['multigame-play-text']) {
+      PlayMultipleGames(PlayerMove);
+      isItFucked(PlayerMove);
+    }
+    if (event.target === elements['clear-button'] || event.target === elements['clear-text']) {
+      clearMultipleGamesField();
+    }
+    if (event.target === elements['auto-play-button'] || event.target === elements['auto-play-text']) {
+      autoPlay(PlayerMove);
+      isItFucked(PlayerMove);
+    }
+    if (event.target === elements['multigame-rock'] || event.target === elements['multigame-rock-icon']) {
+      PlayerMove = 'Rock';
+    }
+    if (event.target === elements['multigame-paper'] || event.target === elements['multigame-paper-icon']) {
+      PlayerMove = 'Paper';
+    }
+    if (event.target === elements['multigame-scissors'] || event.target === elements['multigame-scissors-icon']) {
+      PlayerMove = 'Scissors';
+    }
+  });
+
+  function addMoveClickListener(moveType) {
+    document.getElementById(`${moveType.toLowerCase()}-button`).addEventListener('click', () => {
+      PlayGame(moveType);
+    });
+  }
+  
+  addMoveClickListener('Rock');
+  addMoveClickListener('Paper');
+  addMoveClickListener('Scissors');
+
   let isAutoPlaying = false;
   let intervalId;
 

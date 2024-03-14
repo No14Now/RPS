@@ -26,22 +26,19 @@
 
     <div class="move-buttons-div">
 
-      <button onclick="PlayGame('Rock');"
-      class="move-button rock-button">
+      <button class="move-button" id="rock-button">
         <img src="../images/rock-emoji.png"
         class="move-icon">
         <!--Rock-->
       </button>
 
-      <button onclick="PlayGame('Paper');"
-      class="move-button paper-button">
+      <button class="move-button" id="paper-button">
         <img src="../images/paper-emoji.png"
         class="move-icon">
         <!--Paper-->
       </button>
 
-      <button onclick="PlayGame('Scissors');"
-      class="move-button scissors-button">
+      <button class="move-button" id="scissors-button">
         <img src="../images/scissors-emoji.png"
         class="move-icon">
         <!--Scissors-->
@@ -71,67 +68,65 @@
 
           <div class="L1">
             <svg width="56" height="42">
-              <a href="#" onclick="PlayMultipleGames(PlayerMove), isItFucked(PlayerMove);">
+              <a href="#">
                <polygon points="0,0 28,42 56,0" class="small-move-polygon small-multigame-polygon-anomaly" id="multigame-play-button"/>
               </a>
             </svg>
 
-            <span class="indicative-on-anomaly" onclick="PlayMultipleGames(PlayerMove), isItFucked(PlayerMove);">
+            <span class="indicative-on-anomaly" id="multigame-play-text">
               PLAY
             </span>
           </div>
 
           <div class="L2">
             <svg width="56" height="42">
-              <a href="#" onclick="PlayerMove = 'Rock';">
-               <polygon points="0,42 28,0 56,42" class="small-multigame-polygon small-multigame-polygon-pyramid"/>
+              <a href="#">
+               <polygon points="0,42 28,0 56,42" class="small-multigame-polygon small-multigame-polygon-pyramid" id="multigame-rock"/>
               </a>
             </svg>
-
             <img src="../images/rock-emoji.png"
-            class="small-move-icon indicative-on-pyramid" onclick="PlayerMove = 'Rock';">
+            class="small-move-icon indicative-on-pyramid" id="multigame-rock-icon">
           </div>
 
           <div class="L3">
             <svg width="56" height="42">
-              <a href="#" onclick="PlayerMove = 'Paper';">
-                <polygon points="0,0 28,42 56,0" class="small-multigame-polygon small-multigame-polygon-anomaly"/>
+              <a href="#">
+                <polygon points="0,0 28,42 56,0" class="small-multigame-polygon small-multigame-polygon-anomaly" id="multigame-paper"/>
              </a>
             </svg>  
-
             <img src="../images/paper-emoji.png"
-            class="small-move-icon indicative-on-anomaly" onclick="PlayerMove = 'Paper';" style="left: 21px;">
+            class="small-move-icon indicative-on-anomaly" id="multigame-paper-icon" style="left: 21px;">
           </div>
 
           <div class="L4">
             <svg width="56" height="42">
-              <a href="#" onclick="PlayerMove = 'Scissors';">
-               <polygon points="0,42 28,0 56,42" class="small-multigame-polygon small-multigame-polygon-pyramid"/>
+              <a href="#">
+               <polygon points="0,42 28,0 56,42" class="small-multigame-polygon small-multigame-polygon-pyramid" id="multigame-scissors"/>
               </a>
             </svg>
-
             <img src="../images/scissors-emoji.png"
-            class="small-move-icon indicative-on-pyramid" onclick="PlayerMove = 'Scissors';">
+            class="small-move-icon indicative-on-pyramid" id="multigame-scissors-icon">
           </div>
 
           <div class="L5">
             <svg width="56" height="42">
-              <polygon points="0,0 28,42 56,0" class="small-move-polygon small-multigame-polygon-anomaly"/>
+              <polygon points="0,0 28,42 56,0" class="small-move-polygon small-multigame-polygon-anomaly" id="clear-button"/>
             </svg>
 
-            <span class="indicative-on-anomaly" style="left: 16px;" onclick="clearMultipleGamesField();">
+            <span class="indicative-on-anomaly" id="clear-text" style="left: 16px;">
               CLR
             </span>
           </div>
 
         </div>
+
         <div class="auto-play-button-div">
           <svg width="120" height="42">
-            <a href="#" onclick="autoPlay(PlayerMove), isItFucked(PlayerMove);">
+            <a href="#">
              <polygon points="0,0 60,90 120,0" class="small-move-polygon small-multigame-polygon-anomaly auto-play-button" id="auto-play-button"/>
             </a>
           </svg>
-          <span class="indicative-on-autoplay" onclick="autoPlay(PlayerMove), isItFucked(PlayerMove);">
+          <span class="indicative-on-autoplay" id="auto-play-text">
             AUTO
           </span>
         </div>
