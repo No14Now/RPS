@@ -208,10 +208,11 @@ updateRecordElement();
     console.log(PlayerMove);
   }
 
-  const filter = document.getElementById('glow');
-  
-  let deviation = 3;
-  setInterval(() => {
-    deviation = (deviation === 3) ? 10 : 3; 
-    filter.setAttribute('stdDeviation', deviation); 
-  }, 2000); 
+  document.addEventListener('DOMContentLoaded', async () => {
+    const filter = document.getElementById('glow');
+    let deviation = 3;
+    setInterval(() => {
+      deviation = (deviation === 3) ? 10 : 3; 
+      filter.setAttribute('stdDeviation', deviation); 
+    }, 2000);
+  });
