@@ -42,12 +42,13 @@ updateRecordElement();
 
   const smallMovePolygons = document.querySelectorAll('.small-multigame-polygon');
   
+  // main functionality, using event listeners. vv
+  
   document.addEventListener('click', (event) => {
     if (event.target === document.getElementById('multigame-play-button') || event.target === document.getElementById('multigame-play-text')) {
       PlayMultipleGames(PlayerMove);
       isItFucked(PlayerMove);
       console.log(PlayerMove);
-      console.log("test");
     }
     if (event.target === document.getElementById('clear-button') || event.target === document.getElementById('clear-text')) {
       clearMultipleGamesField();
@@ -92,6 +93,45 @@ updateRecordElement();
   addMoveClickListener('Rock');
   addMoveClickListener('Paper');
   addMoveClickListener('Scissors');
+
+  // here we play the game using the keyboard. vv
+
+  document.addEventListener('keydown', (event) => {
+    const inputElement = document.getElementById('multiple-games-input');
+  
+    if (event.shiftKey) {
+      if (event.shiftKey && event.key === 'C') {
+        clearMultipleGamesField();
+        addSelectedClass(document.getElementById('clear-button'));
+        smallMovePolygons.forEach(p => {
+          p.classList.remove('selected');
+        });
+        setTimeout(() => {
+          removeSelectedClass(document.getElementById('clear-button'));
+        }, 1000);
+      } else if (event.shiftKey && event.key === 'R') {
+        PlayerMove = 'Rock';
+        // Perform any additional actions for choosing Rock
+      } else if (event.shiftKey && event.key === 'P') {
+        PlayerMove = 'Paper';
+        // Perform any additional actions for choosing Paper
+      } else if (event.shiftKey && event.key === 'S') {
+        PlayerMove = 'Scissors';
+        // Perform any additional actions for choosing Scissors
+      }}
+      if (event.key === 'Enter') {
+        PlayMultipleGames(PlayerMove);
+        isItFucked(PlayerMove);
+        console.log(PlayerMove);
+      }
+       else if (event.key >= '0' && event.key <= '9' && document.activeElement !== inputElement) {
+        const number = event.key;
+        inputElement.value += number;
+      } else if (event.key === 'Backspace' && document.activeElement !== inputElement) {
+        inputElement.value = inputElement.value.slice(0, -1);
+      }
+    }
+  );
 
   function addSelectedClass(item) {
     item.classList.add('selected');
