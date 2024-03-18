@@ -44,6 +44,41 @@
 
 1-way data, same-origin policy, file protection, VT-CYBSEC, address space layout randomization (ASLR), stack protection, fly trap program, exploit development, reverse engineering, why SQL, bcrypt, scrypt, Argon2, fileless execution, remote code execution, how to tell if something is written by a human or by AI, firewalls, intrusion detection systems, endpoint protection, Endpoint Detection and Response (EDR), Intrusion Detection and Prevention Systems (IDPS), reverse proxies, insecure defaults, phone app on PC, reverse shell, web shell, raising an exception, fragmentation, virtualization, manual memory management, 111... file, DNS spoofing, SIP spoofing, return-oriented programming (ROP) chain, memory leak, ESP in x86, .NET framework, garbage collection, superclass, SSL/TLS, Data Loss Prevention (DLP), URL (Uniform Resource Locator), URI (Uniform Resource Identifier), mil-setting CYBSEC, explain IP addresses, explain ports, explain protocols, APK files, mobile device management (MDM), hysteresis in economics, spread spectrum modulation, dynamic frequency hopping, and time division multiple access (TDMA) , VPNs, TLS/SSL, phase shift keying, drones and EW, HTTPS, proxy, 
 
+(function() {
+    // Function to check if a variable is a function
+    function isFunction(functionToCheck) {
+        return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
+    }
+
+    // Iterate through all properties of the window object
+    for (const prop in window) {
+        if (window.hasOwnProperty(prop) && isFunction(window[prop])) {
+            console.log(prop + ' : ' + window[prop]);
+        }
+    }
+})();
+
+(function() {
+    // Function to check if a variable is a function
+    function isFunction(functionToCheck) {
+        return typeof functionToCheck === 'function';
+    }
+
+    // Iterate through all properties of the window object
+    for (const prop in window) {
+        if (window.hasOwnProperty(prop) && isFunction(window[prop])) {
+            console.log(prop + ' : ' + window[prop]);
+        }
+    }
+})();
+
+// Get all the function names in the global environment
+const allFunctionNames = Object.keys(window)
+  .filter(key => typeof window[key] === 'function');
+
+// Log all the function names
+console.log(allFunctionNames);
+
 <!--
 salting code, key stretching, best practices for handling pws, sandboxed environment using HTML, CSS and JavaScript, cryptography,  Parameterized Queries, Sanitization, Content Security Policy and Escaping Output, rainbow table attacks, precomputed dictionary attacks, cross-site scripting, buffer overflow, stack canaries, shellcode, stack pivoting, visualise escalating privileges, corrupt the program's execution flow, minimise attack vectors, minimise attack surface, prevent CSRF, stack pointer, object-oriented programming (OOP), event-driven programming, asynchronous programming, C, C++, C#, event loop, HTTPS, shadow tree, root privileges, rootkits, threat intel, 
 -->
