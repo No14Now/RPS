@@ -111,6 +111,7 @@ input[type=number] {
 .indicative-on-autoplay {
   position: absolute;
   color: gold;
+  cursor: pointer;
 }
 
 .small-multigame-polygon {
