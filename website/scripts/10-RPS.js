@@ -272,6 +272,7 @@ updateRecordElement();
     console.log(PlayerMove);
   }
 
+  // animation that doesn't work
   document.addEventListener('DOMContentLoaded', async () => {
     const filter = document.getElementById('glow');
     let deviation = 3;
